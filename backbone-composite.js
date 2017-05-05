@@ -36,7 +36,7 @@
       console.groupEnd();
     },
 
-    push: function(view, id) {
+    push: function(id, view) {
       this.subviews[id || view.cid] = view;
       return view;
     },
