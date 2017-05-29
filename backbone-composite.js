@@ -58,6 +58,8 @@
         this.dispose();
       }
 
+      return this;
+
     }
 
   });
