@@ -24,8 +24,12 @@
   Backbone.View = View.extend({
 
     constructor: function() {
-      this.subviews = {};
       View.apply(this, Array.prototype.slice.call(arguments));
+      this.subviews = {};
+    },
+
+    dispose() {
+      return this;
     },
 
     remove: function() {
@@ -51,15 +55,9 @@
     },
 
     _dispose: function() {
-
+      this.dispose();
       _(this.subviews).invoke("remove");
       this.subviews = {};
-
-      if (_.isFunction(this.dispose)) {
-        console.log(this.cid, "(dispose)");
-        this.dispose();
-      }
-
       return this;
 
     }
