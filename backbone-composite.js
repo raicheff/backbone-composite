@@ -1,7 +1,7 @@
 /*
  * Backbone.Composite
  *
- * Copyright (C) 2016 Boris Raicheff
+ * Copyright (C) 2017 Boris Raicheff
  * All rights reserved
  */
 
@@ -37,6 +37,7 @@
     },
 
     push: function(view, id) {
+      view.parent = this;
       this.subviews[id || view.cid] = view;
       return view;
     },
@@ -45,6 +46,7 @@
       var view = this.subviews[id];
       // this.subviews[id] = void 0;
       delete this.subviews[id];
+      delete view.parent;
       return view;
     },
 
