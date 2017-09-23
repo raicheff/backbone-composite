@@ -28,7 +28,7 @@
       this.subviews = {};
     },
 
-    dispose() {
+    dispose: function() {
       return this;
     },
 
